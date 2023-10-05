@@ -16,9 +16,9 @@ const Hero = () => {
       </div>
 
       <h1 className={styles.hero__title}>
-        <span data-title-first>Ultra</span>
+        <span data-title-first>gsap</span>
         <span data-hero-line className={styles.hero__line}></span>
-        <span data-title-last>agency</span>
+        <span data-title-last>intro</span>
       </h1>
 
       <div className={styles.hero__image}>

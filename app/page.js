@@ -1,11 +1,12 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+'use client'
 import Loader from './components/loader'
+import Hero from './components/hero'
 
 export default function Home() {
   return (
     <main>
-      <Loader />
+      {/* <Loader /> */}
+      <Hero />
     </main>
   )
 }
