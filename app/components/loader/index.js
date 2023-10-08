@@ -15,6 +15,7 @@ const Loader = () => {
     gsap.to(wordGroupsRef.current, {
       yPercent: -80,
       duration: 5,
+      ease: "expo.inOut",
     })
   }, [])
 
