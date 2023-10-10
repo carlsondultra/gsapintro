@@ -4,12 +4,21 @@ import { gsap } from 'gsap'
 
 import styles from "./Loader.module.scss";
 
-const Loader = () => {
+import { introAnimation, progressAnimation } from "./animations";
+
+const Loader = ({ timeline }) => {
 
   const loaderRef = useRef(null);
   const progressRef = useRef(null);
   const progressNumberRef = useRef(null);
   const wordGroupsRef = useRef(null);
+
+  useEffect(() => {
+    timeline &&
+      timeline
+        .add(introAnimation(wordGroupsRef))
+        .add(progressAnimation(progressRef, progressNumberRef))
+  }, [])
 
   useEffect(() => {
     gsap.to(wordGroupsRef.current, {
@@ -33,7 +42,7 @@ const Loader = () => {
       <div className={styles.loader}>
         <div className={styles.loader__words}>
           <div className={styles.loader__overlay}></div>
-          <div className={styles.loader__wordsGroup} ref={wordGroupsRef}> 
+          <div className={styles.loader__wordsGroup} ref={wordGroupsRef}>
             {words.map((word, index) => {
               return (
                 <span key={index} className={styles.loader__word}>
