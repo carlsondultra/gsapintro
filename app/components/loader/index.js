@@ -4,7 +4,7 @@ import { gsap } from 'gsap'
 
 import styles from "./Loader.module.scss";
 
-import { introAnimation, progressAnimation } from "./animations";
+import { collapseWords, introAnimation, progressAnimation } from "./animations";
 
 const Loader = ({ timeline }) => {
 
@@ -17,29 +17,17 @@ const Loader = ({ timeline }) => {
     timeline &&
       timeline
         .add(introAnimation(wordGroupsRef))
-        .add(progressAnimation(progressRef, progressNumberRef))
-  }, [])
-
-  useEffect(() => {
-    gsap.to(wordGroupsRef.current, {
-      yPercent: -80,
-      duration: 5,
-      ease: "power3.inOut",
-    })
-    gsap.to(progressRef.current, {
-      scaleX: 1,
-      duration: 5,
-      ease: "power3.inOut"
-    })
-  }, [])
+        .add(progressAnimation(progressRef, progressNumberRef), 0)
+        .add(collapseWords(loaderRef), "-=1")
+  }, [timeline])
 
   return (
-    <div className={styles.loader__wrapper} ref={loaderRef}>
+    <div className={styles.loader__wrapper}>
       <div className={styles.loader__progressWrapper}>
         <div className={styles.loader__progress} ref={progressRef}></div>
         <span className={styles.loader__progressNumber} ref={progressNumberRef}>0</span>
       </div>
-      <div className={styles.loader}>
+      <div className={styles.loader} ref={loaderRef}>
         <div className={styles.loader__words}>
           <div className={styles.loader__overlay}></div>
           <div className={styles.loader__wordsGroup} ref={wordGroupsRef}>

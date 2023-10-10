@@ -18,7 +18,7 @@ export const progressAnimation = (progressRef, progressNumberRef) => {
 
     const tl = gsap.timeline();
 
-    gsap.to(progressRef.current, {
+    tl.to(progressRef.current, {
         scaleX: 1,
         duration: 5,
         ease: "power3.inOut"
@@ -26,4 +26,18 @@ export const progressAnimation = (progressRef, progressNumberRef) => {
     
     return tl;
 
+}
+
+
+export const collapseWords = (wordGroupsRef) => {
+    const tl = gsap.timeline();
+
+    tl.to(wordGroupsRef.current, {
+
+        "clip-path": "polygon(0% 50%, 100% 50%, 200% 50%, 0% 50%)",
+        duration: 3,
+        ease: "expo.inOut",
+    })
+
+    return tl;
 }
