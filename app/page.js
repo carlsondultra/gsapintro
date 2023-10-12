@@ -12,23 +12,17 @@ export default function Home() {
   useLayoutEffect(() => {
     const context = gsap.context(() => {
       const tl = gsap.timeline({
-        onComplete: () => setLoaderFinished(true)
+        onComplete: () => setLoaderFinished(true),
       })
-
       setTimeline(tl)
-
     })
-
     return () => context.revert();
-
   }, [])
 
 
   return (
     <main>
-      {/* {loaderFinished ? <Hero /> : <Loader timeline={timeline}/>} */}
-      <Loader timeline={timeline}/>
-      {/* <Hero /> */}
+      {loaderFinished ? <Hero /> : <Loader timeline={timeline}/>}
     </main>
   )
 }
