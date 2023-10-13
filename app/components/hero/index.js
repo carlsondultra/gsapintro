@@ -33,9 +33,9 @@ const Hero = () => {
       </div>
 
       <h1 className={styles.hero__title}>
-        <span data-title-first hidden>gsap</span>
+        <span data-title-first data-hidden>gsap</span>
         <span data-hero-line className={styles.hero__line}></span>
-        <span data-title-last hidden>intro</span>
+        <span data-title-last data-hidden>intro</span>
       </h1>
 
       <div className={styles.hero__image}>
