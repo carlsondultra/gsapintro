@@ -1,4 +1,4 @@
-import {gsap} from 'gsap'
+import { gsap } from 'gsap'
 
 export const animateTitle = () => {
     const tl = gsap.timeline({
@@ -9,8 +9,27 @@ export const animateTitle = () => {
     });
 
     tl.to('[data-hero-line]', {
-        scaleX: 1
-    })
+        scaleX: 1,
+    }).fromTo(
+        '[data-title-first',
+        {
+            x: 100,
+            autoAlpha: 0
+        },
+        {
+            x: 0,
+            autoAlpha: 1,
+        },
+        '<15%'
+    ).fromTo("[data-title-last]", {
+        x: -100,
+        autoAlpha: 0,
+    }, {
+        x: 0,
+        autoAlpha: 1,
+    }, 
+     "<" // start at the same time as the last one
+    )
 
     return tl;
 }
