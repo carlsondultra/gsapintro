@@ -4,15 +4,32 @@ import Image from "next/image";
 
 import styles from "./Hero.module.scss";
 
+import { animateTitle } from "./animations";
+
 const Hero = () => {
+
+  const heroRef = useRef(null);
+  const timeline = useRef(gsap.timeline());
+
+  useEffect(() => {
+    const context = gsap.context(() => {
+      const tl = timeline.current;
+      
+
+      tl.add(animateTitle())
+    })
+
+    return () => context.revert()
+  }, heroRef)
+
   return (
-    <section className={styles.hero}>
-      <div className={styles.hero__top} data-hidden>
-        <div data-menu-item>
+    <section className={styles.hero} ref={heroRef}>
+      <div className={styles.hero__top}>
+        <div data-menu-item data-hidden>
           <p>Hello!</p>
         </div>
-        <span data-menu-item>about</span>
-        <span data-menu-item>contact</span>
+        <span data-menu-item data-hidden>about</span>
+        <span data-menu-item data-hidden>contact</span>
       </div>
 
       <h1 className={styles.hero__title}>
