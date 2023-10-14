@@ -33,3 +33,31 @@ export const animateTitle = () => {
 
     return tl;
 }
+
+export const animateImage = () => {
+    const tl = gsap.timeline({
+        defaults: {
+            ease: 'expo.out',
+            duration: 1.5,
+        },
+    })
+
+    tl.to("[data-image-overlay]", {
+        scaleY: 1,
+    }).from('[data-image]',
+    {
+        yPercent: 100, //start image from outside of the screen
+    },
+    "<"
+    ).to('[data-image-overlay]', {
+        scaleY: 0,
+        transformOrigin: "top center",
+    }).from('[data-image]', {
+        duration: 2,
+        scale: 1.3,
+    },
+    "<"
+    )
+
+    return tl
+}

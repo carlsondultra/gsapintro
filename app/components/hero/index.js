@@ -4,7 +4,7 @@ import Image from "next/image";
 
 import styles from "./Hero.module.scss";
 
-import { animateTitle } from "./animations";
+import { animateTitle, animateImage } from "./animations";
 
 const Hero = () => {
 
@@ -16,7 +16,7 @@ const Hero = () => {
       const tl = timeline.current;
       
 
-      tl.add(animateTitle())
+      tl.add(animateTitle()).add(animateImage())
     })
 
     return () => context.revert()
