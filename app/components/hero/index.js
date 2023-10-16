@@ -41,7 +41,7 @@ const Hero = () => {
       <div className={styles.hero__image}>
         <div data-image-overlay className={styles.hero__imageOverlay}></div>
         <Image
-          data-hidden
+          // data-hidden
           data-image
           src="/images/blob.jpg"
           width={1728}
