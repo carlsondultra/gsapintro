@@ -2,7 +2,17 @@ This is a GSAP loading animation using React and Next.JS.
 
 ## Getting Started
 
-First, run the development server:
+Clone repository: 
+```bash
+git clone https://github.com/carlsondultra/gsapintro.git
+```
+
+Install dependencies: 
+```bash
+npm install
+```
+
+Afterwards, run the development server:
 
 ```bash
 npm run dev
