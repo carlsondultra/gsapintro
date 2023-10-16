@@ -16,7 +16,7 @@ const Hero = () => {
       const tl = timeline.current;
       
 
-      tl.add(animateTitle()).add(animateImage()).add(revealMenu());
+      tl.add(animateTitle()).add(animateImage(), 0).add(revealMenu(), 0);
     })
 
     return () => context.revert()
